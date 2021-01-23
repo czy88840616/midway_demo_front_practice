@@ -9,7 +9,7 @@ export class FilterEmailInfo implements IMethodAspect {
       const result = await point.proceed(...point.args);  // 执行原方法
       return result;
     } catch(err) {
-      return err;
+      throw new Error('真实返回的友好错误');
     }
   }
 }
