@@ -64,13 +64,8 @@ export class EmailController {
       html: sendHtml
     };
     // 发送邮件，并有回调函数
-    try {
-      const result = await transporter.sendMail(mailOptions);
-      this.logger.info('===send email result===', result);
-    } catch (error) {
-      this.ctx.body = error;
-      return;
-    }
-    this.ctx.body = sendHtml;
+    const result = await transporter.sendMail(mailOptions);
+    this.logger.info('===send email result===', result);
+    return sendHtml;
   }
 }
